@@ -44,5 +44,3 @@ Os arquivos finais serão gerados no diretório `dist/`.
 Para detalhes aprofundados sobre a arquitetura do projeto e procedimentos de manutenção, consulte o arquivo [DOCUMENTATION.md](./DOCUMENTATION.md).
 
 ---
-
-*Gemma Boutique • Qualidade em cada detalhe.*
