@@ -1,0 +1,81 @@
+---
+---
+
+<section class="py-16 sm:py-24 px-4 sm:px-8 overflow-hidden relative border-t border-gemma-sand/10">
+	<div class="w-full sm:w-11/12 md:max-w-3xl mx-auto">
+		<h2 class="font-serif text-2xl sm:text-3xl md:text-4xl font-light tracking-widest text-center mb-10 sm:mb-16 uppercase text-gemma-sand">Coleção Exclusiva</h2>
+		
+		<div class="swiper gemma-gallery group">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide cursor-grab">
+					<div class="relative aspect-[4/5] overflow-hidden bg-gemma-sand/5 rounded-md sm:rounded-xl border border-gemma-sand/20 shadow-2xl">
+						<img src="/gemma-slide1.png" alt="Joia para Noiva 1" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-[1.03] brightness-105 contrast-125 saturate-[1.05]" loading="lazy" />
+						<div class="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 z-10 px-3 py-1 bg-gemma-green/30 backdrop-blur-sm rounded-sm">
+							<p class="text-[11px] sm:text-sm uppercase tracking-[0.2em] text-gemma-sand font-medium brightness-110">Curadoria Gemma</p>
+						</div>
+					</div>
+				</div>
+				<div class="swiper-slide cursor-grab">
+					<div class="relative aspect-[4/5] overflow-hidden bg-gemma-sand/5 rounded-md sm:rounded-xl border border-gemma-sand/20 shadow-2xl">
+						<img src="/gemma-slide2.png" alt="Joia para Noiva 2" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-[1.03] brightness-105 contrast-125 saturate-[1.05]" loading="lazy" />
+						<div class="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 z-10 px-3 py-1 bg-gemma-green/30 backdrop-blur-sm rounded-sm">
+							<p class="text-[11px] sm:text-sm uppercase tracking-[0.2em] text-gemma-sand font-medium brightness-110">Peças Exclusivas</p>
+						</div>
+					</div>
+				</div>
+				<div class="swiper-slide cursor-grab">
+					<div class="relative aspect-[4/5] overflow-hidden bg-gemma-sand/5 rounded-md sm:rounded-xl border border-gemma-sand/20 shadow-2xl">
+						<img src="/gemma-slide3.png" alt="Joia para Noiva 3" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-[1.03] brightness-105 contrast-125 saturate-[1.05]" loading="lazy" />
+						<div class="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 z-10 px-3 py-1 bg-gemma-green/30 backdrop-blur-sm rounded-sm">
+							<p class="text-[11px] sm:text-sm uppercase tracking-[0.2em] text-gemma-sand font-medium brightness-110">Design Atemporal</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="swiper-pagination mt-8 relative !bottom-0"></div>
+		</div>
+	</div>
+</section>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" media="print" onload="this.media='all'"/>
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"></noscript>
+
+<script is:inline type="module">
+	import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs';
+
+	document.addEventListener('DOMContentLoaded', () => {
+		new Swiper('.gemma-gallery', {
+			effect: 'fade',
+			fadeEffect: {
+				crossFade: true
+			},
+			speed: 2000,
+			autoplay: {
+				delay: 3500,
+				disableOnInteraction: false,
+			},
+			pagination: {
+				el: '.swiper-pagination',
+				clickable: true,
+			},
+			loop: true,
+		});
+	});
+</script>
+
+	<style>
+	:global(.swiper-pagination-bullet) {
+		background: var(--gemma-sand, #E5DDC8);
+		opacity: 0.3;
+		width: 16px;
+		height: 1px;
+		border-radius: 0;
+		transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+	}
+	:global(.swiper-pagination-bullet-active) {
+		opacity: 0.9;
+		width: 32px;
+		background: var(--gemma-sand, #E5DDC8);
+	}
+</style>

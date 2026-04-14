@@ -1,0 +1,103 @@
+---
+const whatsappNumber = "5571996313232";
+const whatsappMessage = encodeURIComponent(
+  "Olá! Gostaria de agendar um atendimento na Gemma.",
+);
+const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+
+const slides = [
+  { img: "/gemma-slide1.png", alt: "Coleção Gemma 1" },
+  { img: "/gemma-slide2.png", alt: "Coleção Gemma 2" },
+  { img: "/gemma-slide3.png", alt: "Coleção Gemma 3" },
+];
+---
+
+<section class="relative min-h-screen w-full overflow-hidden flex items-center">
+  <div class="absolute inset-0 z-0">
+    <div class="swiper hero-swiper h-full w-full">
+      <div class="swiper-wrapper">
+        {slides.map((slide) => (
+          <div class="swiper-slide h-full w-full">
+            <div class="relative h-full w-full">
+              <img 
+                src={slide.img} 
+                alt={slide.alt} 
+                class="h-full w-full object-cover brightness-[0.8] contrast-[1.05]"
+              />
+              <div class="absolute inset-0 bg-gemma-green/30 radial-overlay"></div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <div class="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-12 flex flex-col items-center text-center animate-fade-in-up">
+    <div class="max-w-3xl">
+      <h1
+        class="font-serif text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-light tracking-tight leading-[1.1] mb-6 sm:mb-8"
+      >
+        <span class="italic block mb-2 sm:mb-4 opacity-90 text-gemma-sand drop-shadow-lg">O detalhe perfeito</span>
+        <span class="drop-shadow-2xl">para o seu momento inesquecível.</span>
+      </h1>
+
+      <p
+        class="text-base sm:text-2xl font-light mb-10 sm:mb-14 opacity-95 max-w-2xl mx-auto leading-relaxed drop-shadow-md px-4 sm:px-0"
+      >
+        Curadoria de luxo em acessórios para noivas e ocasiões especiais. Peças que contam histórias.
+      </p>
+
+      <a
+        href={whatsappLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-block bg-gemma-sand text-gemma-green px-8 sm:px-12 py-4 sm:py-6 uppercase tracking-[0.2em] sm:tracking-[0.3em] text-[9px] sm:text-xs font-semibold transition-all duration-700 hover:tracking-[0.4em] hover:bg-white rounded-none shadow-[0_20px_50px_rgba(0,0,0,0.3)] mx-4 sm:mx-0"
+      >
+        Agende seu atendimento exclusivo
+      </a>
+    </div>
+  </div>
+</section>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<script is:inline type="module">
+  import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    new Swiper('.hero-swiper', {
+      effect: 'fade',
+      fadeEffect: { crossFade: true },
+      speed: 3000,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      loop: true,
+      allowTouchMove: false,
+    });
+  });
+</script>
+
+<style>
+  .radial-overlay {
+    background: radial-gradient(circle at center, transparent 0%, rgba(26, 47, 36, 0.4) 100%);
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  h1 {
+    text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  }
+</style>
