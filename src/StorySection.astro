@@ -1,0 +1,135 @@
+---
+const whatsappNumber = "5571996313232";
+const sections = [
+  {
+    id: "clutches",
+    title: "CLUTCHES",
+    description: "Cada bolsa é uma joia de mão disponível para aluguel. Desenvolvida com pérolas e cristais para guardar as memórias do seu dia mais especial em sintonia com seu vestido.",
+    img: "/clutch.png",
+    whatsappMsg: "Olá! Vi as Clutches para aluguel no site e gostaria de saber as condições.",
+    align: "left"
+  },
+  {
+    id: "grinaldas",
+    title: "GRINALDAS",
+    description: "O toque de luz para locação que emoldura o seu rosto. Nossas grinaldas são esculturas delicadas em metal e pedraria, feitas para brilhar na medida certa.",
+    img: "/grinalda.png",
+    whatsappMsg: "Olá! Vi as Grinaldas para aluguel no site e gostaria de mais informações.",
+    align: "right"
+  },
+  {
+    id: "tercos",
+    title: "TERÇOS",
+    description: "Símbolos de devoção exclusivos para aluguel. Cristais lapidados e acabamentos em prata que acompanham seu caminhar com elegância e fé.",
+    img: "/terco.png",
+    whatsappMsg: "Olá! Tenho interesse no aluguel dos Terços que vi no site.",
+    align: "left"
+  }
+];
+
+const finalCTA = {
+    text: "Gostou das peças? Agende seu atendimento premium",
+    link: `https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Olá! Gostaria de agendar um atendimento para conhecer as peças de aluguel.")}`
+};
+---
+
+<section class="relative py-24 px-6 overflow-hidden bg-[#F9F8F6]">
+  <!-- Monstera Leaves Background -->
+  <img 
+    src="/monstera.png" 
+    alt="" 
+    class="absolute top-[-10%] left-[-10%] w-[500px] opacity-[0.08] pointer-events-none z-0 rotate-[-15deg] mix-blend-multiply"
+  />
+  <img 
+    src="/monstera.png" 
+    alt="" 
+    class="absolute bottom-[-10%] right-[-10%] w-[600px] opacity-[0.08] pointer-events-none z-0 rotate-[165deg] mix-blend-multiply"
+  />
+
+  <div class="max-w-6xl mx-auto relative z-10">
+    <!-- Intro Header -->
+    <div class="text-center mb-24 opacity-0 transition-all duration-1000 translate-y-10 reveal-item">
+        <span class="font-sans text-[10px] uppercase tracking-[0.4em] text-gemma-green opacity-60 mb-4 block">Catálogo de Locação</span>
+        <h2 class="font-serif text-4xl sm:text-5xl text-gemma-green italic">Curadoria para Aluguel</h2>
+    </div>
+
+    <div class="space-y-32 sm:space-y-48">
+      {sections.map((item, index) => (
+        <div 
+          class={`flex flex-col ${item.align === 'right' ? 'sm:flex-row-reverse' : 'sm:flex-row'} items-center gap-12 sm:gap-24 overflow-visible`}
+        >
+          <!-- Image Block -->
+          <div class={`w-full sm:w-1/2 relative group opacity-0 transition-all duration-1000 ${item.align === 'left' ? '-translate-x-20' : 'translate-x-20'} reveal-image`}>
+            <!-- Sand Decorative Box -->
+            <div 
+              class={`absolute -z-10 w-full h-full bg-gemma-sand/30 top-6 ${item.align === 'left' ? '-left-6' : '-right-6'} transition-transform duration-700 group-hover:translate-x-2 group-hover:translate-y-2`}
+            ></div>
+            <div class="overflow-hidden shadow-2xl">
+              <img 
+                src={item.img} 
+                alt={item.title} 
+                class="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-[1.03]"
+              />
+            </div>
+            
+            <!-- Flow Line (Desktop Only) -->
+            {index < sections.length - 1 && (
+                <div class={`hidden sm:block absolute top-[110%] w-1 h-32 border-l border-dashed border-gemma-sand ${item.align === 'left' ? 'left-1/2' : 'right-1/2'}`}></div>
+            )}
+          </div>
+
+          <!-- Text Block -->
+          <div class={`w-full sm:w-1/2 space-y-6 text-center sm:text-left opacity-0 transition-all duration-1000 delay-300 ${item.align === 'left' ? 'translate-x-20' : '-translate-x-20'} reveal-text`}>
+            <h2 class="font-serif text-3xl sm:text-4xl tracking-[2px] text-gemma-green uppercase">
+              {item.title}
+            </h2>
+            <p class="text-gemma-green/80 font-sans font-light leading-relaxed max-w-md mx-auto sm:ml-0">
+              {item.description}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Final CTA Button -->
+    <div class="mt-32 sm:mt-48 text-center opacity-0 transition-all duration-1000 translate-y-10 reveal-item">
+        <a
+            href={finalCTA.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-block bg-gemma-sand text-gemma-green px-8 sm:px-12 py-4 sm:py-6 uppercase tracking-[0.2em] sm:tracking-[0.3em] text-[9px] sm:text-xs font-semibold transition-all duration-700 hover:tracking-[0.4em] hover:bg-white rounded-none shadow-[0_20px_50px_rgba(0,0,0,0.15)]"
+        >
+            {finalCTA.text}
+        </a>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.remove('opacity-0', 'translate-y-20', 'translate-y-10', '-translate-x-20', 'translate-x-20');
+            entry.target.classList.add('opacity-100', 'translate-y-0', 'translate-x-0');
+            observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal-item, .reveal-image, .reveal-text').forEach(item => {
+      observer.observe(item);
+    });
+  });
+</script>
+
+<style>
+  .reveal-item, .reveal-image, .reveal-text {
+    will-change: transform, opacity;
+  }
+</style>

@@ -2,15 +2,19 @@
 // Importação direta dos componentes da raiz do src/
 import Layout from '../Layout.astro';
 import Hero from '../Hero.astro';
+import StorySection from '../StorySection.astro';
 import Footer from '../Footer.astro';
 import FloatingWhatsApp from '../FloatingWhatsApp.astro';
 import Header from '../Header.astro';
 ---
 
 <Layout title="Gemma Boutique | Sofisticação e Exclusividade em Acessórios">
-	<main class="flex-grow w-full">
+	<header>
 		<Header />
+	</header>
+	<main class="flex-grow w-full">
 		<Hero />
+		<StorySection />
 	</main>
 	<Footer />
 	<FloatingWhatsApp />
