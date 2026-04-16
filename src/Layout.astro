@@ -6,7 +6,7 @@ interface Props {
 }
 const { title } = Astro.props;
 const siteUrl = "https://gemmaboutique.com.br";
-const description = "Gemma Boutique - Curadoria de luxo em acessórios para noivas e ocasiões especiais em Salvador, BA. Peças exclusivas que contam histórias.";
+const description = "Aluguel de acessórios de luxo para noivas em Salvador, BA. Curadoria exclusiva de grinaldas, clutches e terços que contam histórias. Agende seu atendimento.";
 const ogImage = siteUrl + "/logo-gemma.jpg";
 ---
 
@@ -16,7 +16,7 @@ const ogImage = siteUrl + "/logo-gemma.jpg";
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		
-		<title>{title}</title>
+		<title>{title.includes('Gemma') ? title : `${title} | Gemma Boutique - Aluguel de Acessórios de Noiva`}</title>
 		<meta name="title" content={title} />
 		<meta name="description" content={description} />
 		<link rel="canonical" href={siteUrl} />
@@ -40,14 +40,14 @@ const ogImage = siteUrl + "/logo-gemma.jpg";
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-		<!-- JSON-LD Structured Data -->
+		<!-- JSON-LD Structured Data Avançado -->
 		<script type="application/ld+json" is:inline>
 			{
 				"@context": "https://schema.org",
 				"@type": "ClothingStore",
 				"name": "Gemma Boutique",
 				"image": "https://gemmaboutique.com.br/logo-gemma.jpg",
-				"description": "Curadoria de luxo em acessórios para noivas e ocasiões especiais em Salvador, BA.",
+				"description": "Aluguel de acessórios de luxo para noivas e ocasiões especiais em Salvador, BA.",
 				"address": {
 					"@type": "PostalAddress",
 					"streetAddress": "Apipema Center",
@@ -56,9 +56,18 @@ const ogImage = siteUrl + "/logo-gemma.jpg";
 					"postalCode": "40169610",
 					"addressCountry": "BR"
 				},
+				"geo": {
+					"@type": "GeoCoordinates",
+					"latitude": -13.0075,
+					"longitude": -38.5085
+				},
 				"url": "https://gemmaboutique.com.br",
 				"telephone": "+5571996313232",
-				"priceRange": "$$$"
+				"priceRange": "$$$",
+				"sameAs": [
+					"https://www.instagram.com/gemma.loc/",
+					"https://www.tiktok.com/@gemma.loc"
+				]
 			}
 		</script>
 	</head>
