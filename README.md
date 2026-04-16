@@ -4,20 +4,20 @@ Esta é a plataforma digital oficial da **Gemma Boutique**, uma landing page de 
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 - **[Astro](https://astro.build/):** Framework principal para entrega de HTML estático ultra-rápido.
 - **Tailwind CSS:** Framework de estilização baseado em utilitários para um design consistente.
 - **Lenis JS:** Implementação de scroll suave (smooth scrolling) inercial.
 - **Swiper JS:** Componente de exibição para a galeria de fotos exclusiva.
 
-## 💎 Identidade Visual
+## Identidade Visual
 
 O projeto utiliza uma paleta de cores sóbria e tipografia clássica:
 - **Cores:** Gemma Green (`#1A2F24`) e Gemma Sand (`#E5DDC8`).
 - **Tipografia:** Serifada (*Cormorant Garamond*) para títulos e Sans-serif (*Montserrat*) para corpo.
 
-## 🚀 Como Executar o Projeto
+## Como Executar o Projeto
 
 ### Pré-requisitos
 - Node.js instalado.
@@ -39,7 +39,7 @@ npm run build
 ```
 Os arquivos finais serão gerados no diretório `dist/`.
 
-## 📄 Documentação Técnica
+## Documentação Técnica
 
 Para detalhes aprofundados sobre a arquitetura do projeto e procedimentos de manutenção, consulte o arquivo [DOCUMENTATION.md](./DOCUMENTATION.md).
 
