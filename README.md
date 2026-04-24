@@ -1,46 +1,49 @@
 # Gemma Boutique - Landing Page
 
-Esta é a plataforma digital oficial da **Gemma Boutique**, uma landing page de alta performance projetada para o segmento de luxo e acessórios para noivas. O projeto prioriza sofisticação estética, navegação fluida e otimização para motores de busca (SEO).
+Mantenha a plataforma digital oficial da **Gemma Boutique**, uma landing page de alta performance projetada para o segmento de luxo e acessórios para noivas. Priorize a sofisticação estética, a navegação fluida e a otimização para motores de busca (SEO) durante todo o desenvolvimento.
 
 ---
 
 ## Tecnologias Utilizadas
 
-- **[Astro](https://astro.build/):** Framework principal para entrega de HTML estático ultra-rápido.
-- **Tailwind CSS:** Framework de estilização baseado em utilitários para um design consistente.
-- **Lenis JS:** Implementação de scroll suave (smooth scrolling) inercial.
-- **Swiper JS:** Componente de exibição para a galeria de fotos exclusiva.
+Utilize as seguintes tecnologias na base do projeto:
+- **[Astro](https://astro.build/):** Construa a estrutura principal com este framework para entrega de HTML estático ultra-rápido.
+- **Tailwind CSS:** Estilize os componentes com este framework baseado em utilitários para manter um design consistente.
+- **Lenis JS:** Mantenha a implementação de scroll suave (smooth scrolling) inercial para garantir a fluidez na navegação.
+- **Swiper JS:** Utilize este componente para exibir a galeria de fotos exclusiva.
 
 ## Identidade Visual
 
-O projeto utiliza uma paleta de cores sóbria e tipografia clássica:
-- **Cores:** Gemma Green (`#1A2F24`) e Gemma Sand (`#E5DDC8`).
-- **Tipografia:** Serifada (*Cormorant Garamond*) para títulos e Sans-serif (*Montserrat*) para corpo.
+Siga estritamente a paleta de cores sóbria e a tipografia clássica definidas para o projeto:
+- **Cores:** Aplique o Gemma Green (`#1A2F24`) e o Gemma Sand (`#E5DDC8`).
+- **Tipografia:** Utilize a fonte serifada (*Cormorant Garamond*) para os títulos e a Sans-serif (*Montserrat*) para o corpo do texto.
 
 ## Como Executar o Projeto
 
 ### Pré-requisitos
-- Node.js instalado.
+- Instale o Node.js em seu ambiente.
 
 ### Instalação
+Execute o seguinte comando para instalar as dependências do projeto:
 ```bash
 npm install
 ```
 
 ### Desenvolvimento
+Inicie o servidor local para visualizar a aplicação com o comando:
 ```bash
 npm run dev
 ```
 
 ### Build de Produção
-Para gerar os arquivos otimizados para deploy:
+Gere os arquivos otimizados para deploy usando o comando:
 ```bash
 npm run build
 ```
-Os arquivos finais serão gerados no diretório `dist/`.
+Recolha os arquivos finais que serão gerados automaticamente no diretório `dist/`.
 
 ## Documentação Técnica
 
-Para detalhes aprofundados sobre a arquitetura do projeto e procedimentos de manutenção, consulte o arquivo [DOCUMENTATION.md](./DOCUMENTATION.md).
+Consulte o arquivo [DOCUMENTATION.md](./DOCUMENTATION.md) para obter detalhes aprofundados sobre a arquitetura do projeto e os procedimentos operacionais de manutenção.
 
 ---

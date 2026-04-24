@@ -33,30 +33,49 @@ const finalCTA = {
 };
 ---
 
-<section class="relative py-24 px-6 overflow-hidden bg-[#F9F8F6]">
+<section class="relative py-16 sm:py-24 px-6 overflow-hidden bg-[#F9F8F6]">
   <!-- Monstera Leaves Background -->
   <img 
     src="/monstera.png" 
     alt="" 
-    class="absolute top-[-10%] left-[-10%] w-[500px] opacity-[0.08] pointer-events-none z-0 rotate-[-15deg] mix-blend-multiply"
+    loading="lazy"
+    decoding="async"
+    class="absolute top-[0%] sm:top-[-2%] left-[-40%] sm:left-[-10%] w-[350px] sm:w-[500px] opacity-[0.08] pointer-events-none z-0 rotate-[-15deg] mix-blend-multiply"
   />
   <img 
     src="/monstera.png" 
     alt="" 
+    loading="lazy"
+    decoding="async"
+    class="absolute top-[5%] sm:top-[-2%] right-[-40%] sm:right-[-10%] w-[300px] sm:w-[450px] opacity-[0.08] pointer-events-none z-0 rotate-[105deg] mix-blend-multiply scale-x-[-1]"
+  />
+  <img 
+    src="/monstera.png" 
+    alt="" 
+    loading="lazy"
+    decoding="async"
     class="absolute bottom-[-10%] right-[-10%] w-[600px] opacity-[0.08] pointer-events-none z-0 rotate-[165deg] mix-blend-multiply"
   />
 
   <div class="max-w-6xl mx-auto relative z-10">
+    <!-- Sobre a Gemma -->
+    <div class="text-center mb-16 sm:mb-32 opacity-0 transition-all duration-1000 translate-y-10 reveal-item max-w-2xl mx-auto">
+      <span class="font-sans text-[10px] uppercase tracking-[0.4em] text-gemma-green opacity-60 mb-4 block">Sobre a Gemma</span>
+      <h2 class="font-serif text-3xl sm:text-4xl text-gemma-green italic mb-6">Exclusividade em Detalhes</h2>
+      <p class="text-gemma-green/80 font-sans font-light leading-relaxed text-sm sm:text-base">
+        A Gemma Boutique oferece curadoria de luxo em acessórios para locação. Nossas peças são pensadas para mulheres que valorizam a sofisticação e buscam um brilho especial, transformando cada ocasião em um momento verdadeiramente inesquecível.
+      </p>
+    </div>
     <!-- Intro Header -->
-    <div class="text-center mb-24 opacity-0 transition-all duration-1000 translate-y-10 reveal-item">
+    <div class="text-center mb-12 sm:mb-24 opacity-0 transition-all duration-1000 translate-y-10 reveal-item">
         <span class="font-sans text-[10px] uppercase tracking-[0.4em] text-gemma-green opacity-60 mb-4 block">Catálogo de Locação</span>
         <h2 class="font-serif text-4xl sm:text-5xl text-gemma-green italic">Curadoria para Aluguel</h2>
     </div>
 
-    <div class="space-y-32 sm:space-y-48">
+    <div class="space-y-12 sm:space-y-32">
       {sections.map((item, index) => (
         <div 
-          class={`flex flex-col ${item.align === 'right' ? 'sm:flex-row-reverse' : 'sm:flex-row'} items-center gap-12 sm:gap-24 overflow-visible`}
+          class={`flex flex-col ${item.align === 'right' ? 'sm:flex-row-reverse' : 'sm:flex-row'} items-center gap-8 sm:gap-24 overflow-visible`}
         >
           <!-- Image Block -->
           <div class={`w-full sm:w-1/2 relative group opacity-0 transition-all duration-1000 ${item.align === 'left' ? '-translate-x-20' : 'translate-x-20'} reveal-image`}>
@@ -70,8 +89,9 @@ const finalCTA = {
                 alt={`${item.title} - Aluguel de Acessórios de Luxo para Noivas em Salvador`} 
                 width="600"
                 height="800"
-                class="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-[1.03]"
                 loading="lazy"
+                decoding="async"
+                class="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-[1.03]"
               />
             </div>
             
@@ -83,9 +103,9 @@ const finalCTA = {
 
           <!-- Text Block -->
           <div class={`w-full sm:w-1/2 space-y-6 text-center sm:text-left opacity-0 transition-all duration-1000 delay-300 ${item.align === 'left' ? 'translate-x-20' : '-translate-x-20'} reveal-text`}>
-            <h2 class="font-serif text-3xl sm:text-4xl tracking-[2px] text-gemma-green uppercase">
+            <h3 class="font-serif text-3xl sm:text-4xl tracking-[2px] text-gemma-green uppercase">
               {item.title}
-            </h2>
+            </h3>
             <p class="text-gemma-green/80 font-sans font-light leading-relaxed max-w-md mx-auto sm:ml-0">
               {item.description}
             </p>
@@ -95,7 +115,7 @@ const finalCTA = {
     </div>
 
     <!-- Final CTA Button -->
-    <div class="mt-32 sm:mt-48 text-center opacity-0 transition-all duration-1000 translate-y-10 reveal-item">
+    <div class="mt-16 sm:mt-32 text-center opacity-0 transition-all duration-1000 translate-y-10 reveal-item">
         <a
             href={finalCTA.link}
             target="_blank"

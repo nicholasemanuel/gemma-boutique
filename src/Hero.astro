@@ -24,6 +24,9 @@ const slides = [
                 width="1920"
                 height="1080"
                 class="h-full w-full object-cover brightness-[0.8] contrast-[1.05]"
+                loading={slide.img === '/grinalda2.jpeg' ? 'eager' : 'lazy'}
+                fetchpriority={slide.img === '/grinalda2.jpeg' ? 'high' : 'low'}
+                decoding={slide.img === '/grinalda2.jpeg' ? 'sync' : 'async'}
               />
               <div class="absolute inset-0 bg-gemma-green/30 radial-overlay"></div>
             </div>

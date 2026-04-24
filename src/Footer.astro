@@ -3,13 +3,13 @@ import Logo from './Logo.astro';
 ---
 
 <footer
-  class="mt-auto pt-14 pb-16 px-6 border-t border-gemma-sand/10 text-center flex flex-col items-center bg-gemma-green"
+  class="mt-auto pt-10 pb-10 px-6 border-t border-gemma-sand/10 text-center flex flex-col items-center bg-gemma-green"
 >
-  <a href="#top" class="mb-6 block">
+  <a href="/" class="mb-6 block">
     <img
-      src="/logo-gemma.jpg"
+      src="/gemma-footer.png"
       alt="Gemma Boutique Logo"
-      class="w-20 object-contain"
+      class="w-32 sm:w-40 object-contain mx-auto"
     />
   </a>
 
@@ -60,15 +60,15 @@ import Logo from './Logo.astro';
     </a>
   </div>
 
-  <p class="text-[10px] uppercase tracking-widest font-light opacity-50 mb-8 max-w-xs mx-auto leading-relaxed">
-    Apipema Center - Salvador, BA • CEP 40169610
+  <p class="text-[10px] uppercase tracking-widest font-light opacity-50 mb-8 max-w-lg mx-auto leading-relaxed px-4">
+    Rua Professor Sabino Silva, 836 - Piso L2 - Apipema Center Salvador - Bahia - CEP.: 40.169-610.
   </p>
 
   <p class="text-[9px] opacity-40 uppercase tracking-[0.2em] font-light mb-2">
     <a href="/politica-de-privacidade" class="hover:text-gemma-sand transition-colors">Política de Privacidade</a>
   </p>
 
-  <p class="text-[9px] opacity-40 uppercase tracking-[0.2em] font-light">
-    &copy; {new Date().getFullYear()} Gemma Boutique • Todos os direitos reservados
+  <p class="text-[9px] opacity-40 uppercase tracking-[0.2em] font-light max-w-3xl mx-auto leading-relaxed">
+    &copy; {new Date().getFullYear()} Gemma Boutique • Todos os direitos reservados | Site desenvolvido por <a href="https://criade.art.br/" target="_blank" rel="noopener noreferrer" class="hover:opacity-100 hover:text-white transition-all font-medium">Criade Comunicação e Design</a>
   </p>
 </footer>

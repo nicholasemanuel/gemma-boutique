@@ -1,71 +1,75 @@
 # Documentação de Diretrizes Técnicas - Gemma Boutique
 
-Este documento estabelece as diretrizes técnicas e operacionais para a manutenção e gestão da plataforma digital **Gemma Boutique**. O sistema foi projetado sob padrões de alta performance e rigor estético, visando a estabilidade da marca no segmento de luxo.
+Siga rigorosamente este documento, que estabelece as diretrizes técnicas e operacionais para a manutenção e gestão da plataforma digital **Gemma Boutique**. Mantenha os padrões de alta performance e rigor estético do sistema, visando sempre a estabilidade da marca no segmento de luxo.
 
 ---
 
 ## 1. Arquitetura e Tecnologias
 
-O ecossistema digital utiliza uma stack moderna focada em otimização de ativos e tempo de carregamento:
+Utilize e mantenha o ecossistema digital com a seguinte stack moderna, sempre focando na otimização de ativos e na redução do tempo de carregamento:
 
-- **Framework:** Astro (Arquitetura de ilhas para performance estática).
-- **Estilização:** Tailwind CSS (Sistema de utilitários escalável).
-- **Interação:** Lenis (Motor de scroll inercial para navegação fluida).
-- **Mídia:** Swiper (Componente de exibição de portfólio de alta fidelidade).
+- **Framework:** Utilize o Astro (Arquitetura de ilhas para performance estática).
+- **Estilização:** Aplique o Tailwind CSS (Sistema de utilitários escalável).
+- **Interação:** Mantenha o Lenis (Motor de scroll inercial para navegação fluida).
+- **Mídia:** Utilize o Swiper (Componente de exibição de portfólio de alta fidelidade).
 
 ---
 
 ## 2. Identidade Visual e Ativos
 
-A aplicação segue rigorosamente o manual de marca da Gemma Boutique para garantir consistência visual.
+Siga rigorosamente o manual de marca da Gemma Boutique para garantir a consistência visual em todas as páginas.
 
 ### Especificações de Cores
-- **Gemma Green (`#1A2F24`):** Base institucional para elementos de contraste e fundo.
-- **Gemma Sand (`#E5DDC8`):** Tom de realce para tipografia e call-to-actions.
+- **Gemma Green (`#1A2F24`):** Aplique como base institucional para elementos de contraste e fundos densos.
+- **Gemma Sand (`#E5DDC8`):** Utilize como tom de realce suave para tipografia e call-to-actions.
 
 ### Padrão Tipográfico
-- **Títulos (Serif):** *Cormorant Garamond* (Peso leve).
-- **Corpo de Texto (Sans):** *Montserrat* (Alta legibilidade).
+- **Títulos (Serif):** Aplique a fonte *Cormorant Garamond* (Peso leve) nos cabeçalhos.
+- **Corpo de Texto (Sans):** Utilize a fonte *Montserrat* (Alta legibilidade) para descrições.
 
 ---
 
 ## 3. Estrutura de Diretórios e Componentes
 
-A organização modular do projeto está localizada no diretório `src/`:
+Mantenha e respeite a organização modular do projeto dentro do diretório `src/`:
 
-- `Layout.astro`: Configuração global de SEO, Meta Tags e Injeção de Fontes.
-- `Hero.astro`: Seção de impacto principal e ponto de entrada de conversão.
-- `Gallery.astro`: Módulo de exibição da curadoria e portfólio de peças.
-- `FloatingWhatsApp.astro`: Utilitário de conversão direta em tempo real.
-- `Footer.astro`: Encanamento institucional e informações de rodapé.
+- `Layout.astro`: Edite para alterar a configuração global de SEO, Meta Tags e injeção de scripts estruturados.
+- `Hero.astro`: Mantenha como a seção de impacto principal e o primeiro ponto de conversão.
+- `StorySection.astro`: Edite este arquivo para atualizar a seção "Sobre a Gemma" e gerenciar os itens do catálogo de locação.
+- `Header.astro` / `HeaderContact.astro`: Altere para modificar o menu superior, ícones sociais e contatos.
+- `Footer.astro`: Gerencie as informações institucionais, endereço e links de rodapé.
 
 ---
 
 ## 4. Procedimentos de Manutenção
 
 ### Gestão de Canais de Contato
-A atualização dos terminais de atendimento (WhatsApp) deve ser realizada nos seguintes arquivos para garantir a integridade da comunicação:
+Atualize os terminais de atendimento (links de WhatsApp e Redes Sociais) diretamente nos seguintes arquivos para garantir a integridade da comunicação:
+- `src/Header.astro`
+- `src/HeaderContact.astro`
 - `src/Hero.astro`
-- `src/FloatingWhatsApp.astro`
+- `src/StorySection.astro`
+- `src/Footer.astro`
 
-### Atualização do Portfólio (Galeria)
-1. Armazenar novos arquivos de imagem no diretório `/public/`.
-2. Referenciar os novos caminhos no arquivo `src/Gallery.astro`.
-3. Atualizar os metadados e descrições textuais nos containers correspondentes.
+### Atualização do Portfólio (Catálogo)
+Siga o protocolo abaixo estritamente para adicionar ou alterar peças do catálogo:
+1. Armazene os novos arquivos de imagem otimizados no diretório `/public/`.
+2. Referencie os novos caminhos de imagem no array correspondente dentro de `src/StorySection.astro`.
+3. Atualize os metadados, títulos (`title`), descrições (`description`) e links (`whatsappMsg`) no mesmo arquivo.
 
 ---
 
 ## 5. Protocolo de Implantação (Deployment)
 
-O processo de deploy para ambientes de produção (Hostinger) deve seguir o fluxo de compilação oficial:
+Siga o fluxo de compilação oficial para executar o deploy do site no ambiente de produção:
 
-1. Executar o comando de build para geração de arquivos otimizados:
+1. Execute o comando de build para gerar os arquivos estáticos otimizados:
    ```bash
    npm run build
    ```
-2. O conteúdo gerado no diretório `dist/` representa a versão final estável da aplicação.
-3. Transferir exclusivamente o conteúdo do diretório `dist/` para a pasta raiz (`public_html`) do servidor de destino.
+2. Valide o conteúdo gerado dentro do diretório `dist/`, pois ele representa a versão final e limpa da aplicação.
+3. Transfira exclusivamente o conteúdo do diretório `dist/` para a pasta raiz (como `public_html` ou gerenciadores na nuvem) do servidor de hospedagem.
 
 ---
 
-*Gemma Boutique • Documentação Técnica v1.0*
+*Gemma Boutique • Documentação Técnica*

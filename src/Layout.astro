@@ -7,7 +7,8 @@ interface Props {
 const { title } = Astro.props;
 const siteUrl = "https://gemmaboutique.com.br";
 const description = "Aluguel de acessórios de luxo para noivas em Salvador, BA. Curadoria exclusiva de grinaldas, clutches e terços que contam histórias. Agende seu atendimento.";
-const ogImage = siteUrl + "/logo-gemma.jpg";
+const ogImage = siteUrl + "/gemma-footer.png";
+const keywords = "aluguel de acessórios, acessórios de luxo, noivas, Salvador, BA, grinaldas, clutches, terços, Gemma Boutique, casamento, locação de acessórios, noiva premium";
 ---
 
 <!doctype html>
@@ -19,6 +20,9 @@ const ogImage = siteUrl + "/logo-gemma.jpg";
 		<title>{title.includes('Gemma') ? title : `${title} | Gemma Boutique - Aluguel de Acessórios de Noiva`}</title>
 		<meta name="title" content={title} />
 		<meta name="description" content={description} />
+		<meta name="keywords" content={keywords} />
+		<meta name="author" content="Gemma Boutique" />
+		<meta name="robots" content="index, follow" />
 		<link rel="canonical" href={siteUrl} />
 
 		<meta property="og:type" content="website" />
@@ -44,9 +48,9 @@ const ogImage = siteUrl + "/logo-gemma.jpg";
 		<script type="application/ld+json" is:inline>
 			{
 				"@context": "https://schema.org",
-				"@type": "ClothingStore",
+				"@type": "JewelryStore",
 				"name": "Gemma Boutique",
-				"image": "https://gemmaboutique.com.br/logo-gemma.jpg",
+				"image": "https://gemmaboutique.com.br/gemma-footer.png",
 				"description": "Aluguel de acessórios de luxo para noivas e ocasiões especiais em Salvador, BA.",
 				"address": {
 					"@type": "PostalAddress",
@@ -100,6 +104,14 @@ const ogImage = siteUrl + "/logo-gemma.jpg";
 				]
 			}
 		</script>
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-1BR1WKZW0X"></script>
+		<script is:inline>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'G-1BR1WKZW0X');
+		</script>
 	</head>
 	<body id="top" class="bg-gemma-green text-gemma-sand font-sans antialiased selection:bg-gemma-sand selection:text-gemma-green min-h-screen flex flex-col">
 		<slot />
@@ -111,7 +123,7 @@ const ogImage = siteUrl + "/logo-gemma.jpg";
 			}
 		</style>
 
-		<script src="https://unpkg.com/lenis@1.1.9/dist/lenis.min.js"></script>
+		<script src="https://unpkg.com/lenis@1.1.9/dist/lenis.min.js" defer></script>
 		<script is:inline>
 			document.addEventListener('DOMContentLoaded', () => {
 				const lenis = new Lenis({
