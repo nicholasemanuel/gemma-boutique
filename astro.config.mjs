@@ -6,6 +6,6 @@ export default defineConfig({
   site: 'https://gemmaboutique.com.br/',
   integrations: [
     tailwind(),
-    // sitemap()
+    sitemap()
   ]
 });
