@@ -23,12 +23,13 @@ const slides = [
                 alt={slide.alt} 
                 width="1920"
                 height="1080"
-                class="h-full w-full object-cover brightness-[0.8] contrast-[1.05]"
-                loading={slide.img === '/grinalda2.jpeg' ? 'eager' : 'lazy'}
-                fetchpriority={slide.img === '/grinalda2.jpeg' ? 'high' : 'low'}
-                decoding={slide.img === '/grinalda2.jpeg' ? 'sync' : 'async'}
+                class="h-full w-full object-cover"
+                loading={slide.img === '/grinalda2.webp' ? 'eager' : 'lazy'}
+                fetchpriority={slide.img === '/grinalda2.webp' ? 'high' : 'low'}
+                decoding={slide.img === '/grinalda2.webp' ? 'sync' : 'async'}
               />
-              <div class="absolute inset-0 bg-gemma-green/30 radial-overlay"></div>
+              <div class="absolute inset-0 bg-black/15"></div>
+              <div class="absolute inset-0 bg-gemma-green/20 radial-overlay"></div>
             </div>
           </div>
         ))}
@@ -39,11 +40,11 @@ const slides = [
   <div class="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-12 flex flex-col items-center text-center animate-fade-in-up">
     <div class="max-w-3xl">
       <h1
-        class="font-serif text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-tight leading-[1.2] mb-6 sm:mb-10"
+        class="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-tight leading-[1.2] mb-6 sm:mb-10 text-gemma-sand"
       >
         <span class="sr-only">Aluguel de Acessórios de Noiva em Salvador</span>
-        <span class="italic block mb-2 sm:mb-6 opacity-90 text-gemma-sand drop-shadow-lg leading-tight">O detalhe perfeito</span>
-        <span class="drop-shadow-2xl">para o seu momento inesquecível.</span>
+        <span class="italic block mb-2 sm:mb-6 leading-tight">O detalhe perfeito</span>
+        <span class="block">para o seu momento inesquecível.</span>
       </h1>
 
       <p

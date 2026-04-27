@@ -42,6 +42,7 @@ const keywords = "aluguel de acessórios, acessórios de luxo, noivas, Salvador,
 		<!-- Preconnect & Fonts -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Montserrat:wght@300;400;500;600&display=swap">
 		<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 		<!-- Preload Critical LCP Image -->
@@ -127,22 +128,24 @@ const keywords = "aluguel de acessórios, acessórios de luxo, noivas, Salvador,
 		</style>
 
 		<script src="https://unpkg.com/lenis@1.1.9/dist/lenis.min.js" defer></script>
-		<script is:inline>
+		<script type="module">
 			document.addEventListener('DOMContentLoaded', () => {
-				const lenis = new Lenis({
-					duration: 1.8,
-					easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-					smoothWheel: true,
-					wheelMultiplier: 1.0,
-					lerp: 0.08,
-				});
+				if (typeof Lenis !== 'undefined') {
+					const lenis = new Lenis({
+						duration: 1.8,
+						easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+						smoothWheel: true,
+						wheelMultiplier: 1.0,
+						lerp: 0.08,
+					});
 
-				function raf(time) {
-					lenis.raf(time);
+					function raf(time) {
+						lenis.raf(time);
+						requestAnimationFrame(raf);
+					}
+
 					requestAnimationFrame(raf);
 				}
-
-				requestAnimationFrame(raf);
 			});
 		</script>
 	</body>
