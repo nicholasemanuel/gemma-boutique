@@ -1,75 +1,57 @@
-# Documentação de Diretrizes Técnicas - Gemma Boutique
+# Documentação de Engenharia e Design - Gemma Boutique
 
-Siga rigorosamente este documento, que estabelece as diretrizes técnicas e operacionais para a manutenção e gestão da plataforma digital **Gemma Boutique**. Mantenha os padrões de alta performance e rigor estético do sistema, visando sempre a estabilidade da marca no segmento de luxo.
-
----
-
-## 1. Arquitetura e Tecnologias
-
-Utilize e mantenha o ecossistema digital com a seguinte stack moderna, sempre focando na otimização de ativos e na redução do tempo de carregamento:
-
-- **Framework:** Utilize o Astro (Arquitetura de ilhas para performance estática).
-- **Estilização:** Aplique o Tailwind CSS (Sistema de utilitários escalável).
-- **Interação:** Mantenha o Lenis (Motor de scroll inercial para navegação fluida).
-- **Mídia:** Utilize o Swiper (Componente de exibição de portfólio de alta fidelidade).
+Este documento estabelece as diretrizes arquiteturais, técnicas de otimização de performance e decisões de design aplicadas na plataforma **Gemma Boutique**. Mantenha o cumprimento destas regras em todas as iterações futuras para garantir a estabilidade das métricas de Core Web Vitals e a integridade visual da marca.
 
 ---
 
-## 2. Identidade Visual e Ativos
+## 1. Arquitetura e Engenharia de Performance
 
-Siga rigorosamente o manual de marca da Gemma Boutique para garantir a consistência visual em todas as páginas.
+O projeto foi estruturado com foco absoluto em velocidade de renderização (FCP/LCP) e estabilidade visual (CLS).
 
-### Especificações de Cores
-- **Gemma Green (`#1A2F24`):** Aplique como base institucional para elementos de contraste e fundos densos.
-- **Gemma Sand (`#E5DDC8`):** Utilize como tom de realce suave para tipografia e call-to-actions.
+### 1.1. Otimização de Imagens e Ativos (Core Web Vitals)
+- **Formato WebP:** Exija que todas as imagens servidas no ambiente de produção estejam codificadas em formato `.webp`. Isso reduz o payload da rede em até 80% quando comparado aos formatos legados (JPEG/PNG).
+- **Dimensões Explícitas:** Declare obrigatoriamente os atributos `width` e `height` nas tags `<img>`. Esta prática reserva o espaço de renderização no DOM, eliminando flutuações de layout (Cumulative Layout Shift - CLS) durante a fase de carregamento assíncrono.
+- **Estratégia de Priorização (Preloading):** 
+  - A imagem principal (Largest Contentful Paint - LCP) no componente `Hero.astro` deve ser renderizada com os atributos `loading="eager"`, `fetchpriority="high"` e `decoding="sync"`.
+  - Mantenha uma tag `<link rel="preload" as="image">` no `Layout.astro` apontando para o ativo de maior relevância visual do topo da página.
+  - Subordine o restante do catálogo de imagens no `StorySection.astro` à política de carregamento tardio (`loading="lazy"` e `decoding="async"`).
 
-### Padrão Tipográfico
-- **Títulos (Serif):** Aplique a fonte *Cormorant Garamond* (Peso leve) nos cabeçalhos.
-- **Corpo de Texto (Sans):** Utilize a fonte *Montserrat* (Alta legibilidade) para descrições.
+### 1.2. Otimização de Fontes e Renderização
+- Aplique o pré-carregamento (`<link rel="preload" as="style">`) para as requisições de folhas de estilo do Google Fonts. Isto mitiga a ocorrência de *Flash of Unstyled Text* (FOUT) e acelera o tempo do primeiro desenho de conteúdo (FCP).
+- Evite o uso de filtros CSS computacionalmente custosos, como `filter: drop-shadow()` ou `brightness()`, diretamente sobre imagens ou blocos textuais extensos. Opte pela injeção de sobreposições visuais (overlays) baseadas em *background-color* com opacidade (ex: `bg-black/15`), garantindo a preservação dos frames por segundo (FPS) no hardware mobile.
 
----
-
-## 3. Estrutura de Diretórios e Componentes
-
-Mantenha e respeite a organização modular do projeto dentro do diretório `src/`:
-
-- `Layout.astro`: Edite para alterar a configuração global de SEO, Meta Tags e injeção de scripts estruturados.
-- `Hero.astro`: Mantenha como a seção de impacto principal e o primeiro ponto de conversão.
-- `StorySection.astro`: Edite este arquivo para atualizar a seção "Sobre a Gemma" e gerenciar os itens do catálogo de locação.
-- `Header.astro` / `HeaderContact.astro`: Altere para modificar o menu superior, ícones sociais e contatos.
-- `Footer.astro`: Gerencie as informações institucionais, endereço e links de rodapé.
+### 1.3. Execução de Scripts
+- Proíba o bloqueio do *main thread*. Scripts de interação (como o motor de inércia Lenis) devem ser executados através da flag `type="module"` ou declarados via atributo `defer`, liberando o motor do navegador para priorizar a construção do Render Tree.
 
 ---
 
-## 4. Procedimentos de Manutenção
+## 2. Padrões de Design e UX
 
-### Gestão de Canais de Contato
-Atualize os terminais de atendimento (links de WhatsApp e Redes Sociais) diretamente nos seguintes arquivos para garantir a integridade da comunicação:
-- `src/Header.astro`
-- `src/HeaderContact.astro`
-- `src/Hero.astro`
-- `src/StorySection.astro`
-- `src/Footer.astro`
+A interface foi projetada sob o paradigma do **Minimalismo Funcional**, operando com uma carga informacional controlada.
 
-### Atualização do Portfólio (Catálogo)
-Siga o protocolo abaixo estritamente para adicionar ou alterar peças do catálogo:
-1. Armazene os novos arquivos de imagem otimizados no diretório `/public/`.
-2. Referencie os novos caminhos de imagem no array correspondente dentro de `src/StorySection.astro`.
-3. Atualize os metadados, títulos (`title`), descrições (`description`) e links (`whatsappMsg`) no mesmo arquivo.
+### 2.1. Sistema de Cores (Design Tokens)
+Assegure o contraste estrito entre o background e a tipografia:
+- **Gemma Green (`#1A2F24`):** Matiz de fundo principal, conferindo gravidade e densidade visual ao design.
+- **Gemma Sand (`#E5DDC8`):** Matiz de realce, empregado exclusivamente para tipografia, elementos de ação (CTAs) e separadores de seção.
 
----
+### 2.2. Tipografia Editorial
+- **Títulos (Serifa):** Utilize *Cormorant Garamond* em sua variante leve (`font-light`). Esta fonte deve ser configurada com `text-shadow` sutis em vez de drop-shadows para preservar performance.
+- **Apoio (Sans-serif):** Utilize *Montserrat* com espaçamento entre caracteres acentuado (`tracking-[0.2em]`) na renderização de botões, selos e navegação, reforçando a identidade estética associada à alta-costura.
 
-## 5. Protocolo de Implantação (Deployment)
-
-Siga o fluxo de compilação oficial para executar o deploy do site no ambiente de produção:
-
-1. Execute o comando de build para gerar os arquivos estáticos otimizados:
-   ```bash
-   npm run build
-   ```
-2. Valide o conteúdo gerado dentro do diretório `dist/`, pois ele representa a versão final e limpa da aplicação.
-3. Transfira exclusivamente o conteúdo do diretório `dist/` para a pasta raiz (como `public_html` ou gerenciadores na nuvem) do servidor de hospedagem.
+### 2.3. Layout Dinâmico e Cartografia
+- **Footer "Split Layout":** Mantenha o rodapé estruturado em formato de grade (Grid) dividida no desktop, com dados institucionais à esquerda e ativos gráficos à direita.
+- O mapa de localização deve operar de forma estética, utilizando filtros CSS (como `mix-blend-multiply`) ou texturas para se integrar diretamente ao `Gemma Green` do background, sem revelar o formato visual de origem do provedor geográfico, garantindo uma experiência contínua e imersiva.
 
 ---
 
-*Gemma Boutique • Documentação Técnica*
+## 3. Gestão de Conteúdo e Roteamento
+
+### 3.1. SEO e Indexação
+- A estrutura base no `Layout.astro` injeta dinamicamente as tags de OpenGraph, Twitter Cards e dados estruturados avançados (`application/ld+json`) mapeados sob o esquema genérico de `JewelryStore`.
+- O arquivo `astro.config.mjs` utiliza o pacote `@astrojs/sitemap` para emissão autônoma da matriz de links rastreáveis do repositório (`sitemap-index.xml`).
+
+### 3.2. Canais de Conversão
+Padronize globalmente as instâncias de contato de WhatsApp (`FloatingWhatsApp.astro`, `HeaderContact.astro`, `Footer.astro`). Utilize a codificação `encodeURIComponent()` para a pré-formatação segura das mensagens (URLs).
+
+---
+*Manutenção: Exija revisão deste documento após implementações que modifiquem o ciclo de vida do Astro ou introduzam dependências de terceiros no client-side.*

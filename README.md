@@ -1,49 +1,46 @@
-# Gemma Boutique - Landing Page
+# Gemma Boutique - Plataforma Digital Oficial
 
-Mantenha a plataforma digital oficial da **Gemma Boutique**, uma landing page de alta performance projetada para o segmento de luxo e acessórios para noivas. Priorize a sofisticação estética, a navegação fluida e a otimização para motores de busca (SEO) durante todo o desenvolvimento.
+Repositório da plataforma digital da **Gemma Boutique**, uma SPA (Single Page Application) estática de alta performance desenvolvida para atuar como vitrine de conversão no segmento de locação de acessórios de luxo para noivas. O projeto foca em rigor estético, tempos de renderização reduzidos (LCP/FCP) e otimização para motores de busca (SEO).
 
 ---
 
-## Tecnologias Utilizadas
+## Stack Tecnológica Base
 
-Utilize as seguintes tecnologias na base do projeto:
-- **[Astro](https://astro.build/):** Construa a estrutura principal com este framework para entrega de HTML estático ultra-rápido.
-- **Tailwind CSS:** Estilize os componentes com este framework baseado em utilitários para manter um design consistente.
-- **Lenis JS:** Mantenha a implementação de scroll suave (smooth scrolling) inercial para garantir a fluidez na navegação.
-- **Swiper JS:** Utilize este componente para exibir a galeria de fotos exclusiva.
+Instancie e estenda a plataforma utilizando o ecossistema abaixo:
+- **[Astro (v4.x)](https://astro.build/):** Motor de renderização estática. Responsável pela arquitetura de ilhas (Islands Architecture) e entrega de HTML otimizado com zero-JS por padrão.
+- **Tailwind CSS (v3.x):** Framework de estilização baseado em utilitários. Utilizado para mapeamento de design tokens (cores, espaçamentos, tipografia) e design responsivo.
+- **Lenis JS:** Biblioteca de interpolação matemática para scroll inercial suave.
+- **Swiper JS:** Controlador de slider em hardware-accelerated para galerias e apresentações.
 
-## Identidade Visual
+## Procedimentos de Setup
 
-Siga estritamente a paleta de cores sóbria e a tipografia clássica definidas para o projeto:
-- **Cores:** Aplique o Gemma Green (`#1A2F24`) e o Gemma Sand (`#E5DDC8`).
-- **Tipografia:** Utilize a fonte serifada (*Cormorant Garamond*) para os títulos e a Sans-serif (*Montserrat*) para o corpo do texto.
+Siga as instruções abaixo para executar o ambiente de desenvolvimento local.
 
-## Como Executar o Projeto
+### 1. Pré-requisitos
+- Node.js `v18.16.1` ou superior.
+- Git instalado.
 
-### Pré-requisitos
-- Instale o Node.js em seu ambiente.
-
-### Instalação
-Execute o seguinte comando para instalar as dependências do projeto:
+### 2. Instalação
+Clone o repositório e instale a árvore de dependências:
 ```bash
 npm install
 ```
 
-### Desenvolvimento
-Inicie o servidor local para visualizar a aplicação com o comando:
+### 3. Servidor de Desenvolvimento
+Inicie o processo de build em tempo real (HMR) na porta padrão (localhost:4321):
 ```bash
 npm run dev
 ```
 
-### Build de Produção
-Gere os arquivos otimizados para deploy usando o comando:
+### 4. Compilação de Produção
+Gere o pacote final minificado para distribuição:
 ```bash
 npm run build
 ```
-Recolha os arquivos finais que serão gerados automaticamente no diretório `dist/`.
-
-## Documentação Técnica
-
-Consulte o arquivo [DOCUMENTATION.md](./DOCUMENTATION.md) para obter detalhes aprofundados sobre a arquitetura do projeto e os procedimentos operacionais de manutenção.
+Os arquivos otimizados serão depositados no diretório `/dist`. Este diretório deve ser servido por plataformas de hospedagem estática (Vercel, Netlify, Nginx, etc).
 
 ---
+
+## Documentação e Engenharia
+
+Para diretrizes detalhadas sobre manipulação de ativos, técnicas de estabilidade visual (CLS), estratégias de *preloading* e regras do Design System, consulte a [Documentação Técnica (DOCUMENTATION.md)](./DOCUMENTATION.md).
